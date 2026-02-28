@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+	<style type="text/css" media="all">@import "css/style.css?ver=0.0.1";</style>
+    <title>Battlestate Games Launcher</title>
+</head>
+<body class="main">
+	<div id="vk_api_transport"></div>
+	<div id="tw_api_transport"></div>
+	<div class="frame">
+		<div id="sidebar">
+			<div class="sb_cont">
+				<div>
+					<div class="sb_logo"></div>
+				</div>
+			</div>
+			<div class="sb_menu">
+				<div class="sb_games_list">
+					<div class="sb_game not_purchased" data-game-select="eft">
+						<div>
+							<div class="icon game eft" data-state-icon></div>
+							<div>
+								<div class="title">ХУЕТА</div>
+								<div class="subtitle"></div>
+							</div>
+						</div>
+					</div>
+					<div class="sb_game not_purchased" data-game-select="arena">
+						<div>
+							<div class="icon game arena" data-state-icon></div>
+							<div>
+								<div class="title">ХУЕТА: Arena</div>
+								<div class="subtitle"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="sb_spacer"></div>
+			<div class="sb_foot">
+				<div>
+					<div class="sb_downloads">
+						<div>
+							<div class="button downloads" data-toggle-downloads>
+								<i class="icon sb_downloads"></i><div data-i18n="Downloads"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="page" class="main">
+			<div id="head">
+				<div class="background"></div>
+				<div class="wrap">
+					<div id="window_buttons">
+						<div class="minimize"></div>
+						<div class="close"></div>
+					</div>
+					<div class="menu">
+
+						<ul>
+							<li class="item active game" data-view-page="main"><span data-i18n="Game"></span></li>
+							<li class="item news" data-i18n="News" data-view-page="news"></li>
+							<li class="item ets hidden" data-i18n="ETS" data-link="ets" data-view-page="ets" data-hidden-by-default></li>
+							<li class="item ratings out hidden" data-hidden-by-default><a class="item" data-link="rating" href="https://www.escapefromtarkov.com/rating?utm_source=launcher&utm_medium=link_rating&utm_campaign=menu" data-i18n="Ratings"></a></li>
+							<li class="item forum out"><a class="item" href="https://forum.escapefromtarkov.com/?utm_source=launcher&utm_medium=link_forum&utm_campaign=menu" data-i18n="Forum"></a></li>
+							<li class="item expansions out" data-hidden-by-default>
+								<a class="item" data-link="expansions" data-game="eft"
+								   href="https://www.escapefromtarkov.com/expansions?utm_source=launcher&utm_medium=menu&utm_campaign=head&utm_term=expansions_link"
+								><i class="icon expansions"></i><span data-i18n="Expansions"></span></a>
+							</li>
+							<div class="caret">
+								<div id="mobile_menu" class="dropdown hidden">
+									<li class="item" data-view-page="main"><span data-i18n="Game"></span></li>
+									<li class="item" data-view-page="news"><span data-i18n="News"></span></li>
+									<li class="item ratings hidden"><a data-link="rating" href="https://www.escapefromtarkov.com/rating?utm_source=launcher&utm_medium=link_rating&utm_campaign=menu"><span data-i18n="Ratings"></span><i class="icon out"></i></a></li>
+									<li class="item"><a href="https://forum.escapefromtarkov.com/?utm_source=launcher&utm_medium=link_forum&utm_campaign=menu" ><span data-i18n="Forum"></span><i class="icon out"></i></a></li>
+									<li class="item"><a data-link="support" href="https://www.escapefromtarkov.com/support?utm_source=launcher&utm_medium=link_support&utm_campaign=menu"><span data-i18n="Support"></span><i class="icon out"></i></a></li>
+									<li class="item">
+										<a data-link="expansions" data-game="eft"
+										   href="https://www.escapefromtarkov.com/expansions?utm_source=launcher&utm_medium=menu&utm_campaign=head&utm_term=expansions_link"
+										><span data-i18n="Expansions"></span><i class="icon out"></i></a>
+									</li>
+								</div>
+							</div>
+						</ul>
+						<div class="user">
+							<div class="avatar">
+								<img src="img/avatar.jpg" alt="User Avatar" />
+							</div>
+							<div class="username"></div>
+							<div class="status">
+								<div class="icon red"></div>
+								<div class="text" data-i18n="Connecting..."></div>
+								<div class="caret">
+									<div id="user_menu" class="dropdown hidden">
+										<div class="item">
+											<a data-link="profile" href="https://www.escapefromtarkov.com/profile" data-type="dialog">
+												<i class="icon profile" ></i><span data-i18n="Website profile"></span><i class="icon out" ></i>
+											</a>
+										</div>
+										<div class="item">
+											<a data-link="resetPassword" href="https://profile.battlestategames.com/password-recovery">
+												<i class="icon password"></i><span data-i18n="Reset password"></span><i class="icon out" ></i>
+											</a>
+										</div>
+										<div class="item">
+											<a data-link="resetProfile" data-game="eft" href="https://www.escapefromtarkov.com/reset-game-profile">
+												<i class="icon reset"></i><span data-i18n="Reset the game profile"></span><i class="icon out" ></i>
+											</a>
+										</div>
+										<div class="item">
+											<a data-link="support" data-game="eft" href="https://www.escapefromtarkov.com/support?utm_source=launcher&utm_medium=link_support&utm_campaign=menu">
+												<i class="icon comment"></i><span data-i18n="Support"></span><i class="icon out" ></i>
+											</a>
+										</div>
+										<div class="item" onclick="showCodeActivationWindow(this);reachClickGoal('click_activate_code_profile');">
+											<i class="icon key"></i><span data-i18n="Activate code"></span>
+										</div>
+										<div class="splitter"></div>
+										<div class="item settings" data-view-page="settings">
+											<i class="icon gear"></i><span data-i18n="LauncherSettings"></span>
+										</div>
+										<div class="item" onclick="launcher.logout();reachClickGoal('click_logout_profile');">
+											<i class="icon logout"></i><span data-i18n="Change user"></span>
+										</div>
+										<div class="item" onclick="launcher.exit()">
+											<i class="icon exit"></i><span data-i18n="Logout from launcher"></span>
+										</div>
+										<div class="foot">
+											<div id="LauncherVersion" class="right"></div>
+											<div class="left" data-i18n="launcher version"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="main_content" class="content">
+				<div id="foot">
+					<div class="logo">
+						<div class="image" data-branch="default" data-game="eft">
+							<img width="474" height="216" src="img/eft_logo.png" alt="Escape from Tarkov logotype" />
+						</div>
+						<div class="image ets hidden" data-branch="ets" data-game="eft">
+							<img width="474" height="216" src="img/eft_logo_ets.png" alt="Escape from Tarkov ETS logotype" />
+						</div>
+						<div class="image tournament hidden" data-branch="tournament" data-game="eft">
+							<img width="474" height="216" src="img/eft_logo_tournament.png" alt="Escape from Tarkov Tournament logotype" />
+						</div>
+						<div class="image arena hidden" data-branch="default" data-game="arena">
+							<img width="474" height="216" src="img/arena_logo.png" alt="Escape from Tarkov: Arena logotype" />
+						</div>
+					</div>
+					<div id="gamebar">
+						<!--GameState-->
+						<div id="game_main" class="wrap hidden">
+							<div class="row top_buttons">
+								<div class="item config-matching hidden" onclick="showMatchingConfig(this)"><i class="icon server"></i><span data-i18n="ChangeRegion"></span> <div class="value_wrap hidden">(<div class="value"></div>)</div></div>
+								<div class="item report_bug">
+									<div onclick="showBugreport(this)">
+										<i class="icon bug"></i><span data-i18n="Report bug"></span>
+									</div>
+								</div>
+								<div class="item gameSettings">
+									<div data-list-menu-open="gameClientSettings">
+										<i class="icon gear"></i><span data-i18n="GameSettings"></span>
+									</div>
+								</div>
+								<div data-list-menu="gameClientSettings">
+									<ul>
+										<li class="item" onclick="showDir('screenshots', this)">
+											<i class="icon screenshots"></i><span data-i18n="Screenshots"></span>
+										</li>
+										<li class="item" onclick="showDir('logs', this)">
+											<i class="icon logs"></i><span data-i18n="Logs"></span>
+										</li>
+										<li class="item check-updates" onclick="checkForUpdate(this)">
+											<i class="icon update"></i><span data-i18n="Check for updates"></span>
+										</li>
+										<li class="item" onclick="checkConsistency(this)">
+											<i class="icon filecheck"></i><span data-i18n="Check consistency"></span>
+										</li>
+										<li class="item" onclick="clearCache(this)">
+											<i class="icon clearcache"></i><span data-i18n="Clear cache"></span>
+										</li>
+										<li class="item" onclick="navigateToSelectedGameDir(this)">
+											<i class="icon folder"></i><span data-i18n="ShowLocalClientFiles"></span>
+										</li>
+										<li class="item select-folder" onclick="selectGameFolder(this)">
+											<i class="icon folder"></i><span data-i18n="Set the path to existing game installation"></span>
+										</li>
+										<li class="item" onclick="showFeedback(this)">
+											<i class="icon feedback"></i><span data-i18n="Leave feedback"></span>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="block">
+								<div class="left game_queue hidden">
+									<div class="row">
+										<span class="label" data-i18n="You are in queue"></span><span class="label">:</span>
+										<span class="text blinking dark ws-nowrap">
+											<span data-queue="place"></span>
+										</span>
+									</div>
+									<div class="row">
+										<span class="label" data-i18n="Approx. time left"></span><span class="label">:</span>
+										<span class="text ws-nowrap"><span data-queue="approx"></span>
+										</span>
+									</div>
+									<div class="row">
+										<form id="gameMainSubSettings" onchange="try{launcher.setSettings( JSON.stringify( $(this).serializeJSON(window.serializeConf) ) );} catch(e){console.log(e)}" onsubmit="return false;">
+											<div class="item inline">
+												<input id="queueNotifyWithSound" type="checkbox" name="queueNotifyWithSound:boolean" />
+												<label for="queueNotifyWithSound" data-i18n="Sound notification"></label>
+											</div>
+											<div class="item inline">
+												<input id="queueAutoLogIn" type="checkbox" name="queueAutoLogIn:boolean" checked="checked" />
+												<label for="queueAutoLogIn" data-i18n="Automatically start the game"></label>
+											</div>
+										</form>
+									</div>
+								</div>
+								<div class="left reinstall_error hidden">
+									<div class="error mes_1" data-i18n="Warning! Game launch impossible!"></div>
+									<div class="error mes_2" data-i18n="Game files integrity is compromized!"></div>
+									<div class="error mes_3" data-i18n="Complete reinstall required."></div>
+								</div>
+								<div class="left game_info">
+									<div class="row" data-row-game-version>
+										<div class="label inline" data-i18n="Game version"></div><span class="label">:</span>
+										<div class="text inline" data-type="version"></div>
+									</div>
+									<div class="row warning hidden" data-row-wait-for-start-of-testing>
+										<span data-i18n="Wait for the start of testing"></span>
+									</div>
+									<div class="row" data-row-game-edition>
+										<div class="label inline" data-i18n="Game edition"></div>
+										<div class="text inline" data-type="edition"></div
+										> <div class="text inline hidden">(<span data-type="region"></span>)</div>
+									</div>
+									<div class="row" data-row-game-server>
+										<div class="label inline" data-i18n="Server"></div>
+										<div class="text inline" data-type="server">
+											<span id="selectedBranch" data-list-menu-open="selectedBranchName"></span>
+											<div id="selectedBranchName" data-list-menu="selectedBranchName">
+												<ul></ul>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="right">
+									<div class="button huge disabled" data-main-button>
+										<div class="main_text"><i class="icon install"></i><span data-i18n="Install"></span></div>
+										<div class="effect glow_1"></div>
+										<div class="effect glow_2"></div>
+									</div>
+								</div>
+								<div class="background">
+									<div class="left"></div>
+									<div class="middle"></div>
+									<div class="right"></div>
+								</div>
+							</div>
+						</div>
+						<!--EOF GameState-->
+
+
+						<!--GameUpdateState-->
+						<div id="game_installing" class="wrap hidden">
+							<div class="row flex alignItemsCenter">
+								<div class="col">
+									<div class="row topNotes">
+										<div class="text left bold">
+											<span id="install_state_text" data-i18n="Downloading files"></span
+											>: <span id="game_current_percent" data-game-progress-percent>
+													<span class="value">0</span>%
+												</span>
+										</div>
+										<div class="text right" data-game-server></div>
+									</div>
+									<div progress-bar="main" data-game-progress-bar>
+										<div class="slider">
+											<div class="slider_opener"></div>
+											<div class="slider_ender"></div>
+											<div class="effect glow_1"></div>
+											<div class="effect glow_2"></div>
+											<div class="effect glow_3"></div>
+											<div class="slider_animation hidden"><div class="light"></div></div>
+										</div>
+									</div>
+									<div class="notes row">
+										<div class="left text">
+										<span id="game_size_left" data-game-progress-downloaded>0</span
+										> / <span id="game_size_total" data-game-progress-total>0</span
+										> (<span id="game_current_speed" data-game-progress-speed>
+											<span class="value">0</span>
+										</span>)
+										</div>
+										<div class="right text">
+											<div id="time_left_block" class="inline">
+												<span id="game_time_left" data-game-progress-time-left></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col">
+
+									<div class="buttons">
+										<div class="button square pause hidden"
+											 data-game-controls-pause
+											 data-main-button="pause"
+											 data-tooltip="Pause"
+											 data-tooltip-side="top-right"><i class="icon pause"></i></div>
+										<div class="button square download hidden"
+											 data-game-controls-download
+											 data-main-button="download"
+											 data-tooltip="Download"
+											 data-tooltip-side="top-right"><i class="icon download"></i></div>
+										<div class="button square suspend hidden"
+											 data-game-controls-suspend
+											 data-main-button="suspend"
+											 data-tooltip="Suspend"
+											 data-tooltip-side="top-right"><i class="icon suspend"></i></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--EOF Installing-->
+
+					</div>
+				</div>
+			</div>
+
+			<div id="news_content" class="content" onscroll="scrollAppending()">
+				<div class="container small">
+					<div id="news_list">
+						<div class="carousel"></div>
+						<div class="list"></div>
+					</div>
+				</div>
+			</div>
+
+			<div id="news_item" class="content"></div>
+
+			<div id="settings_content" class="content"></div>
+
+			<div id="ets_content" class="content"></div>
+
+			<div id="downloads_content" class="content" style="display: none;">
+				<div class="background"></div>
+				<div class="wrap">
+					<div class="head">
+						<div data-i18n="Downloads"></div>
+					</div>
+					<div class="main">
+						<div class="list hidden" data-download-games-list></div>
+						<div data-download-games-empty>
+							<div class="text" data-i18n="NothingToDownload"></div>
+						</div>
+					</div>
+					<div class="foot">
+						<div data-download-speed-limit></div>
+					</div>
+				</div>
+			</div>
+
+			<div id="loading"><img src="img/loader.svg" alt="..." /></div>
+
+		</div>
+	</div>
+	<script type="text/javascript" src="js/plugins/moment-with-locales.min.js"></script>
+	<script type="text/javascript" src="js/plugins/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/plugins/select2/js/select2.min.js"></script>
+	<script type="text/javascript" src="js/plugins/i18next.min.js"></script>
+	<script type="text/javascript" src="js/plugins/jquery-i18next.min.js"></script>
+	<script type="text/javascript" src="js/plugins/jquery.serializejson.min.js"></script>
+	<script type="text/javascript" src="js/plugins/slick/slick.min.js"></script>
+	<script type="text/javascript" src="js/plugins/rangeslider/ion.rangeSlider.min.js"></script>
+	<script type="text/javascript" src="js/plugins/mustache.min.js"></script>
+    <script type="text/javascript" src="js/conf.js?ver=0.0.1"></script>
+    <script type="text/javascript" src="js/launcher.js?ver=0.0.1"></script>
+	<script type="text/javascript" src="js/app/widgets/share_social.js?ver=0.0.1"></script>
+	<script type="text/javascript" src="js/app/widgets/youtube.js?ver=0.0.1"></script>
+	<script type="text/javascript" src="js/api/ApiWebsiteV1.js?ver=0.0.1"></script>
+    <script type="text/javascript" src="js/api/ApiWebsiteLegacy.js?ver=0.0.1"></script>
+    <script type="text/javascript" src="js/api/ApiWebsiteFactory.js?ver=0.0.1"></script>
+	<script type="text/javascript" src="js/app/content/config.js?ver=0.0.1"></script>
+	<script type="text/javascript" src="js/app/content/carousel.js?ver=0.0.1"></script>
+	<script type="text/javascript" src="js/app/content/news.js?ver=0.0.1"></script>
+	<script type="text/javascript" src="js/app/support/importantNews.js?ver=0.0.1"></script>
+	<script type="text/javascript" src="js/app/content/ets.js?ver=0.0.1"></script>
+	<script type="text/javascript" src="js/app/content/content.js?ver=0.0.1"></script>
+	<script type="text/javascript" src="js/app/games/stateHandler.js?ver=0.0.1"></script>
+    <script type="text/javascript" src="js/global.js?ver=0.0.1"></script>
+	<script type="text/javascript" src="js/common.js?ver=0.0.1"></script>
+	<script type="text/javascript" src="js/sound.js?ver=0.0.1"></script>
+	<link href="js/plugins/select2/css/select2.min.css" rel="stylesheet" />
+	<link href="js/plugins/rangeslider/ion.rangeSlider.min.css" rel="stylesheet" />
+	<div class="hidden">
+		<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+			<defs>
+				<filter id="blur">
+					<feGaussianBlur in="SourceGraphic" stdDeviation="10" />
+				</filter>
+				<filter id="important_blur">
+					<feGaussianBlur in="SourceGraphic" stdDeviation="4" />
+				</filter>
+			</defs>
+		</svg>
+	</div>
+</body>
+</html>
