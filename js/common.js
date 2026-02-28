@@ -322,7 +322,7 @@ function renderBackground(page) {
 			pageParams = pageParamsGame?.branch[branchName] || pageParamsGame?.branch.default
 
 		if(pageParams && typeof pageParams[page]['img'] === "string") {
-			url = `img/bg/${Math.floor(Math.random() * 3) + 1}.jpg`
+			url = `img/bg/${Math.floor(Math.random() * 5) + 1}.jpg`
 		}
 		if(pageParams && typeof pageParams[page]['imgPos'] === "string") {
 			bgposition = pageParams[page]['imgPos']
