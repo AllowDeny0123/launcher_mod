@@ -317,7 +317,7 @@ function renderBackground(page) {
 	try {
 		let pageParamsGame = window.pageParams.game[window.games.selectedGameName],
 			branchName = window.selectedBranch?.name,
-			url = `img/bg/${Math.floor(Math.random() * 3) + 1}.jpg`,
+			url = `img/bg/${Math.floor(Math.random() * 5) + 1}.jpg`,
 			bgposition = 'center top',
 			pageParams = pageParamsGame?.branch[branchName] || pageParamsGame?.branch.default
 
